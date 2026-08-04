@@ -1,0 +1,144 @@
+{
+  "concept_and_art_direction": {
+    "theme": "Industrial Brutalism & Swiss Precision",
+    "vibe": "Award-worthy, kinetic, premium, authoritative.",
+    "core_concept": "Elevating the legacy. Bass Crane is not just equipment; it's the backbone of Richmond's growth since 1913. The design will reflect this with heavy, structural typography, massive contrasting sections, and architectural layout rules.",
+    "color_mode": "Dark mode primary (Industrial Charcoal/Black) with stark white and Signal Red accents for high tension and premium feel."
+  },
+  "color_palette": {
+    "primary": "#E3000F",
+    "primary_description": "Crane Signal Red - Used for main CTA, progress bars, hover states. A loud, kinetic color.",
+    "background_base": "#050505",
+    "background_base_description": "Deep Void Black - Base background for maximum contrast.",
+    "background_surface": "#121212",
+    "background_surface_description": "Industrial Charcoal - For cards, utility bar, header background.",
+    "text_primary": "#FAFAFA",
+    "text_primary_description": "Steel White - High contrast for headings and primary body.",
+    "text_secondary": "#8B8D98",
+    "text_secondary_description": "Muted Ash - For secondary descriptions, meta text.",
+    "border": "#2A2A2A",
+    "border_description": "Subtle structural lines to divide sections without visual clutter."
+  },
+  "typography": {
+    "headings": {
+      "family": "Cabinet Grotesk",
+      "fallback": "Anton, sans-serif",
+      "weights": ["800", "900"],
+      "description": "Used for all H1, H2, H3. Bold, wide, and industrial. Heavy weight contrast.",
+      "letter_spacing": "tracking-tighter"
+    },
+    "body": {
+      "family": "IBM Plex Sans",
+      "weights": ["400", "500"],
+      "description": "Technical, engineered sans-serif for body text. Perfect for the industrial aesthetic.",
+      "letter_spacing": "tracking-normal"
+    },
+    "labels_and_mono": {
+      "family": "IBM Plex Mono",
+      "weights": ["500"],
+      "description": "Used for utility bars, overlines, and placeholder labels.",
+      "letter_spacing": "tracking-[0.2em]"
+    }
+  },
+  "spacing_and_layout": {
+    "philosophy": "Architectural grid. Massive whitespace (negative space) surrounding heavy objects.",
+    "section_padding": "py-24 md:py-32 lg:py-48",
+    "container": "max-w-[1440px] mx-auto px-6 md:px-12",
+    "grid_system": "Bento and Swiss column layouts. 12-column foundation. Subgrid for inner items.",
+    "border_radius": "rounded-none",
+    "border_radius_description": "Absolutely no rounded corners. Everything must be sharp, 90-degree angles to represent steel, engineering, and brutalism."
+  },
+  "motion_and_interactions": {
+    "scroll": "Lenis for buttery smooth momentum scrolling. This is mandatory for the premium Awwwards feel.",
+    "hero_reveal": "Masked line-by-line reveal for the H1 'We Lift Richmond to New Heights'. Text is wrapped in a container with 'overflow: hidden', and the text itself animates from y: '100%' to y: '0%' with a slow ease-out (duration: 1.2s, stagger: 0.1s).",
+    "parallax": "Subtle framer-motion useScroll on the massive gray placeholder images to give them depth.",
+    "marquee": "A slow, editorial marquee 'A FAMILY BUSINESS SINCE 1913 • WE LIFT RICHMOND TO NEW HEIGHTS •' running at 20% opacity in the background of the About section.",
+    "hover_states": "Buttons and links feature a 'magnetic' pull or a stark color inversion (Black to Signal Red). Image placeholders scale down slightly (scale: 0.98) inside an overflow-hidden wrapper."
+  },
+  "components": {
+    "image_placeholders": {
+      "rules": "CRITICAL: NO STOCK PHOTOS. ALL photos must be gray placeholders.",
+      "styling": "Background: #1F1F1F. Border: 1px solid #333333. A 2px Signal Red inner border on hover.",
+      "label": "Inside the placeholder, bottom-left corner: A small #000000 box, padding p-2 px-4, text-xs uppercase IBM Plex Mono, text-white. E.g. 'PLACEHOLDER: CRANE LIFT ON RICHMOND JOBSITE'.",
+      "treatment": "Clipped frames. Add a pseudo-element or actual div with a 1px border that sits 10px off the image to create a 'blueprint / registration mark' effect."
+    },
+    "buttons": {
+      "primary": "Sharp corners (rounded-none). Background: #E3000F. Text: #FAFAFA. Uppercase, tracking-widest, text-sm. Hover: Inverts to #FAFAFA background and #050505 text.",
+      "outline": "Border: 1px solid #FAFAFA. Text: #FAFAFA. Background: transparent. Hover: Background #FAFAFA, text #050505."
+    },
+    "cta_bands": {
+      "style": "Full width, high contrast. Background: #E3000F. Text: #050505. Massive typography ('CALL 24/7: 804-233-0113')."
+    },
+    "utility_bar": {
+      "style": "Height: 40px. Background: #121212. Text: #8B8D98, text-xs. Layout: Flex, space-between. Content: Phone, Email, Hours."
+    },
+    "header": {
+      "style": "Sticky (z-50). Background: bg-[#050505]/90 backdrop-blur-xl. Border-bottom: 1px solid #2A2A2A. Padding: py-4.",
+      "logo": "Top-left. Exact URL provided.",
+      "nav": "Desktop: Flex gap-8, IBM Plex Mono text-sm uppercase. Mobile: Hamburger menu opening a full-screen #050505 overlay."
+    }
+  },
+  "pages_blueprints": {
+    "Home": {
+      "Hero": "Massive typography masked reveal. 'We Lift Richmond to New Heights'. No background image, just stark text and a grid lines background pattern. A scroll indicator (vertical line growing).",
+      "Since_1913": "Large bold statement. Text size text-4xl md:text-6xl.",
+      "Services_Grid": "6-card grid (Border collapse style). Each card has a line icon, bold title, and arrow on hover.",
+      "Trust_Band": "Marquee or grid of CCO Certified placeholder logos.",
+      "Projects_Teaser": "2 large placeholder images side-by-side with parallax scrolling. 'Latest Lifts'.",
+      "CTA": "Bright Signal Red full-width band."
+    },
+    "Services": {
+      "Hero": "Smaller hero, bold H1 'Our Services'.",
+      "List": "6 detailed sections. Alternating layout (Left text/Right placeholder, Right text/Left placeholder). Each placeholder must have the premium architectural styling.",
+      "CTA": "24/7 CTA band."
+    },
+    "Projects": {
+      "Hero": "H1 'Our Work'.",
+      "Gallery": "CSS Grid (Masonry or irregular Bento). 6-9 labeled placeholder tiles. Hover effects on tiles.",
+      "CTA": "CTA band."
+    },
+    "Markets": {
+      "Hero": "H1 'Markets We Serve'.",
+      "Cards": "6 market cards in a 3-column grid. Dark cards with red accents."
+    },
+    "About": {
+      "Hero": "H1 'A Family Business Since 1913'.",
+      "Story": "Editorial 2-column layout. Left: Sticky heading. Right: Flowing text with embedded historical placeholder photos.",
+      "Values": "Row of 4 values (Safety First, Done Right, 3 Generations, 24/7). Divider lines between them."
+    },
+    "Contact": {
+      "Layout": "2-column split screen. Left: Contact info, huge 'Call Now' text, address, hours. Right: Form inside a #121212 box.",
+      "Form": "Shadcn based. Square inputs, no rounded corners. Fields: First/Last, Email, Phone, Comment. Store to DB.",
+      "Map": "Standard Google Map embed full width below the split section."
+    }
+  },
+  "image_urls": {
+    "logo": "https://basscrane.com/wp-content/uploads/2023/05/logo.jpg",
+    "description": "Must be used exactly as-is in header and footer."
+  },
+  "instructions_to_main_agent": [
+    "Install framer-motion and lenis (e.g. @studio-freight/react-lenis or just lenis) for animations and smooth scroll.",
+    "Do NOT use any real stock photos. You MUST use gray div elements specifically styled as described in components.image_placeholders.",
+    "Add 'data-testid' to all interactive elements for testing.",
+    "Ensure all components use `rounded-none` to fit the industrial aesthetic.",
+    "Implement the 'masked line-by-line reveal' in the Home Hero using framer-motion.",
+    "Apply 'Cabinet Grotesk' or fallback 'Anton' for Headings, 'IBM Plex Sans' for Body, 'IBM Plex Mono' for labels.",
+    "Create the contact form storing to a simulated DB or API route.",
+    "Include a standard Google Maps iframe in the contact page."
+  ],
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
+    "You tend to converge toward generic, 'on distribution' outputs. Avoid this: make creative, distinctive frontends that surprise and delight.",
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients.",
+    "Don't make generic centered layouts, simplistic gradients, and uniform styling.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "You MUST NOT apply universal transition. Eg: transition: all. Always add transitions for specific interactive elements like button, input excluding transforms.",
+    "You MUST NOT center align the app container, ie do not add .App { text-align: center; } in the css file.",
+    "Always use modern button styles (in this case, sharp edges) with interaction animations & color relevant to the app style.",
+    "NEVER use AI assistant Emoji characters like 🤖🧠💭💡🔮🎯 etc for icons.",
+    "Every interaction needs micro-animations - hover states, transitions, parallax effects, and entrance animations.",
+    "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.",
+    "Subtle grain textures, noise overlays, custom cursors, selection states, and loading animations: separates good from extraordinary.",
+    "All interactive and key informational elements MUST include a data-testid attribute to facilitate robust automated testing.",
+    "DO NOT use complete transparent background in header, overlays, any surface that has content under it."
+  ]
+}
