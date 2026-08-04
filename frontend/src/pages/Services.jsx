@@ -21,7 +21,7 @@ const Services = () => {
         testId="services-hero"
       />
 
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 bg-white">
         {SERVICES.map((s, i) => {
           const flip = i % 2 === 1;
           return (
@@ -29,7 +29,7 @@ const Services = () => {
               key={s.id}
               id={s.id}
               data-testid={`service-section-${s.id}`}
-              className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center py-20 md:py-28 border-b border-[#1c1c1c]"
+              className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center py-20 md:py-28 border-b border-[#E5E7EB]"
             >
               <Reveal className={flip ? "lg:order-2" : ""}>
                 <Placeholder
@@ -40,17 +40,17 @@ const Services = () => {
                 />
               </Reveal>
               <Reveal delay={0.1} className={flip ? "lg:order-1" : ""}>
-                <span className="font-mono-plex text-sm text-[#E3000F]">/ {s.num}</span>
-                <h2 className="mt-4 text-4xl md:text-5xl lg:text-6xl uppercase text-white">
+                <span className="font-mono-plex text-sm text-[#1C3172]">/ {s.num}</span>
+                <h2 className="mt-4 text-4xl md:text-5xl lg:text-6xl uppercase text-[#1A1A1A]">
                   {s.title}
                 </h2>
-                <p className="mt-6 text-[#c9c9cf] text-lg leading-relaxed max-w-xl">
+                <p className="mt-6 text-[#2B2F38] text-lg leading-relaxed max-w-xl">
                   {s.long}
                 </p>
                 <Link
                   to="/contact"
                   data-testid={`service-book-${s.id}`}
-                  className="group mt-8 inline-flex items-center gap-3 font-mono-plex uppercase tracking-widest text-sm text-white hover:text-[#E3000F] transition-colors duration-300"
+                  className="group mt-8 inline-flex items-center gap-3 font-mono-plex uppercase tracking-widest text-sm text-[#1C3172] hover:text-[#2A4FB0] transition-colors duration-300"
                 >
                   Book This Service
                   <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />

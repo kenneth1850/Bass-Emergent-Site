@@ -3,7 +3,7 @@ import { Phone, Mail, Printer, MapPin, Clock, Facebook, Instagram, Linkedin } fr
 import { COMPANY, NAV } from "@/data/site";
 
 export const Footer = () => (
-  <footer className="bg-[#050505] border-t border-[#2A2A2A]" data-testid="site-footer">
+  <footer className="bg-[#1C3172] text-white" data-testid="site-footer">
     <div className="max-w-[1440px] mx-auto px-6 md:px-12 py-16 md:py-20">
       <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1.2fr]">
         {/* Brand */}
@@ -12,7 +12,7 @@ export const Footer = () => (
             {/* PLACEHOLDER: white footer logo variant to be supplied */}
             <img src={COMPANY.logo} alt={COMPANY.logoAlt} className="h-12 w-auto object-contain" />
           </Link>
-          <p className="mt-6 max-w-sm text-[#8B8D98] text-sm leading-relaxed">
+          <p className="mt-6 max-w-sm text-white/70 text-sm leading-relaxed">
             Crane and truck rental, rigging, and hauling for Richmond and the Commonwealth of
             Virginia — family-owned and lifting since {COMPANY.since}.
           </p>
@@ -23,7 +23,7 @@ export const Footer = () => (
                 key={i}
                 href="#"
                 aria-label="social link"
-                className="w-10 h-10 grid place-items-center border border-[#2A2A2A] text-[#8B8D98] transition-colors duration-300 hover:border-[#E3000F] hover:text-white"
+                className="w-10 h-10 grid place-items-center border border-white/25 text-white/75 transition-colors duration-300 hover:bg-white hover:text-[#1C3172] hover:border-white"
               >
                 <Icon className="w-4 h-4" />
               </a>
@@ -33,16 +33,16 @@ export const Footer = () => (
 
         {/* Nav */}
         <div>
-          <p className="overline text-[#E3000F] mb-6">Sitemap</p>
+          <p className="overline text-white/60 mb-6">Sitemap</p>
           <ul className="space-y-3">
             <li>
-              <Link to="/" className="text-white/80 hover:text-[#E3000F] transition-colors duration-300 text-sm">
+              <Link to="/" className="text-white/85 hover:text-white transition-colors duration-300 text-sm">
                 Home
               </Link>
             </li>
             {NAV.map((item) => (
               <li key={item.to}>
-                <Link to={item.to} className="text-white/80 hover:text-[#E3000F] transition-colors duration-300 text-sm">
+                <Link to={item.to} className="text-white/85 hover:text-white transition-colors duration-300 text-sm">
                   {item.label}
                 </Link>
               </li>
@@ -52,37 +52,37 @@ export const Footer = () => (
 
         {/* Contact */}
         <div>
-          <p className="overline text-[#E3000F] mb-6">Get In Touch</p>
-          <ul className="space-y-4 text-sm text-[#c9c9cf]">
+          <p className="overline text-white/60 mb-6">Get In Touch</p>
+          <ul className="space-y-4 text-sm text-white/85">
             <li>
               <a href={COMPANY.phoneHref} className="flex items-center gap-3 hover:text-white transition-colors duration-300" data-testid="footer-phone">
-                <Phone className="w-4 h-4 text-[#E3000F] shrink-0" /> {COMPANY.phone} (24/7)
+                <Phone className="w-4 h-4 text-white shrink-0" /> {COMPANY.phone} (24/7)
               </a>
             </li>
             <li className="flex items-center gap-3">
-              <Printer className="w-4 h-4 text-[#E3000F] shrink-0" /> Fax: {COMPANY.fax}
+              <Printer className="w-4 h-4 text-white shrink-0" /> Fax: {COMPANY.fax}
             </li>
             <li>
               <a href={`mailto:${COMPANY.email}`} className="flex items-center gap-3 hover:text-white transition-colors duration-300">
-                <Mail className="w-4 h-4 text-[#E3000F] shrink-0" /> {COMPANY.email}
+                <Mail className="w-4 h-4 text-white shrink-0" /> {COMPANY.email}
               </a>
             </li>
             <li className="flex items-start gap-3">
-              <MapPin className="w-4 h-4 text-[#E3000F] shrink-0 mt-0.5" /> {COMPANY.address}
+              <MapPin className="w-4 h-4 text-white shrink-0 mt-0.5" /> {COMPANY.address}
             </li>
             <li className="flex items-start gap-3">
-              <Clock className="w-4 h-4 text-[#E3000F] shrink-0 mt-0.5" />
+              <Clock className="w-4 h-4 text-white shrink-0 mt-0.5" />
               <span>{COMPANY.hoursShort}; Sat–Sun closed</span>
             </li>
           </ul>
         </div>
       </div>
 
-      <div className="mt-16 pt-8 border-t border-[#1c1c1c] flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p className="font-mono-plex text-xs text-[#5a5a5a] uppercase tracking-widest">
+      <div className="mt-16 pt-8 border-t border-white/15 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p className="font-mono-plex text-xs text-white/60 uppercase tracking-widest">
           © {COMPANY.name}. All Rights Reserved.
         </p>
-        <p className="font-mono-plex text-xs text-[#5a5a5a] uppercase tracking-widest">
+        <p className="font-mono-plex text-xs text-white/60 uppercase tracking-widest">
           We Lift Richmond to New Heights
         </p>
       </div>

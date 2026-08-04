@@ -7,7 +7,7 @@ export const Marquee = ({ items = [], speed = "normal", className = "" }) => {
         {doubled.map((item, i) => (
           <span key={i} className="flex items-center">
             <span>{item}</span>
-            <span className="mx-8 text-[#E3000F]">/</span>
+            <span className="mx-8 text-[#1C3172]">/</span>
           </span>
         ))}
       </div>

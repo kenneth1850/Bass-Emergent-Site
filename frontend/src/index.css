@@ -7,25 +7,25 @@
 
 @layer base {
     :root {
-        --background: 0 0% 2%;
-        --foreground: 0 0% 98%;
-        --card: 0 0% 7%;
-        --card-foreground: 0 0% 98%;
-        --popover: 0 0% 7%;
-        --popover-foreground: 0 0% 98%;
-        --primary: 355 100% 44%;
-        --primary-foreground: 0 0% 98%;
-        --secondary: 0 0% 12%;
-        --secondary-foreground: 0 0% 98%;
-        --muted: 0 0% 12%;
-        --muted-foreground: 230 4% 57%;
-        --accent: 355 100% 44%;
-        --accent-foreground: 0 0% 98%;
+        --background: 0 0% 100%;
+        --foreground: 0 0% 10%;
+        --card: 0 0% 100%;
+        --card-foreground: 0 0% 10%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 0 0% 10%;
+        --primary: 223 61% 28%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 220 20% 97%;
+        --secondary-foreground: 0 0% 10%;
+        --muted: 220 20% 97%;
+        --muted-foreground: 220 9% 40%;
+        --accent: 221 61% 43%;
+        --accent-foreground: 0 0% 100%;
         --destructive: 0 84.2% 60.2%;
         --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 16%;
-        --input: 0 0% 16%;
-        --ring: 355 100% 44%;
+        --border: 220 16% 90%;
+        --input: 220 16% 90%;
+        --ring: 223 61% 28%;
         --radius: 0rem;
     }
 }
@@ -40,20 +40,21 @@
     }
     body {
         margin: 0;
-        background-color: #050505;
-        color: #FAFAFA;
+        background-color: #FFFFFF;
+        color: #1A1A1A;
         font-family: "IBM Plex Sans", sans-serif;
         font-feature-settings: "ss01";
     }
     ::selection {
-        background: #E3000F;
-        color: #FAFAFA;
+        background: #1C3172;
+        color: #FFFFFF;
     }
     h1, h2, h3, h4 {
         font-family: "Cabinet Grotesk", "Arial Narrow", sans-serif;
         font-weight: 900;
         letter-spacing: -0.02em;
         line-height: 0.95;
+        color: #1A1A1A;
     }
 }
 
@@ -65,9 +66,9 @@ html.lenis, html.lenis body { height: auto; }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar { width: 10px; }
-::-webkit-scrollbar-track { background: #050505; }
-::-webkit-scrollbar-thumb { background: #2A2A2A; }
-::-webkit-scrollbar-thumb:hover { background: #E3000F; }
+::-webkit-scrollbar-track { background: #F7F8FA; }
+::-webkit-scrollbar-thumb { background: #1C3172; }
+::-webkit-scrollbar-thumb:hover { background: #142457; }
 
 /* Utility classes */
 .font-mono-plex { font-family: "IBM Plex Mono", monospace; }
@@ -81,24 +82,9 @@ html.lenis, html.lenis body { height: auto; }
     font-weight: 500;
 }
 
-/* Grain overlay */
-.grain::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: 100;
-    pointer-events: none;
-    opacity: 0.05;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-/* Blueprint grid background */
-.blueprint-grid {
-    background-image:
-        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
-    background-size: 80px 80px;
-}
+/* Grain / grid neutralized for clean light theme (kept as no-ops) */
+.grain::before { content: none; }
+.blueprint-grid { background-image: none; }
 
 /* Marquee */
 @keyframes marquee {
@@ -116,8 +102,8 @@ html.lenis, html.lenis body { height: auto; }
     content: "";
     position: absolute;
     inset: 10px;
-    border: 1px solid rgba(255,255,255,0.12);
+    border: 1px solid rgba(28,49,114,0.14);
     pointer-events: none;
     transition: border-color 0.4s ease;
 }
-.group:hover .placeholder-frame::after { border-color: rgba(227,0,15,0.6); }
+.group:hover .placeholder-frame::after { border-color: rgba(28,49,114,0.55); }

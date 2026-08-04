@@ -32,7 +32,7 @@ export const Layout = () => {
   }, [location.pathname]);
 
   return (
-    <div className="App grain relative min-h-screen bg-[#050505]">
+    <div className="App relative min-h-screen bg-white">
       <Header />
       <main>
         <Outlet />

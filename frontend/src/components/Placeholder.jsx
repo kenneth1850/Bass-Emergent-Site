@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 /**
  * Premium gray labeled image placeholder with a blueprint registration frame,
- * corner mono label, and optional parallax on scroll.
+ * corner mono label, and optional parallax on scroll. Light theme.
  * Real photography will replace these later.
  */
 export const Placeholder = ({
@@ -24,7 +24,7 @@ export const Placeholder = ({
     <div
       ref={ref}
       data-testid={testId}
-      className={`group relative overflow-hidden bg-[#141414] border border-[#2A2A2A] ${className}`}
+      className={`group relative overflow-hidden bg-[#EEF1F6] border border-[#DDE2EC] ${className}`}
     >
       <div className="placeholder-frame absolute inset-0" />
 
@@ -33,7 +33,7 @@ export const Placeholder = ({
         className="absolute inset-0 opacity-[0.06]"
         style={{
           backgroundImage:
-            "repeating-linear-gradient(45deg, #ffffff 0, #ffffff 1px, transparent 1px, transparent 14px)",
+            "repeating-linear-gradient(45deg, #1C3172 0, #1C3172 1px, transparent 1px, transparent 14px)",
         }}
       />
 
@@ -42,7 +42,7 @@ export const Placeholder = ({
         className="absolute inset-0 flex items-center justify-center"
       >
         <svg
-          className="w-16 h-16 text-[#3a3a3a] transition-colors duration-500 group-hover:text-[#E3000F]"
+          className="w-16 h-16 text-[#B9C0D0] transition-colors duration-500 group-hover:text-[#1C3172]"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -55,12 +55,12 @@ export const Placeholder = ({
       </motion.div>
 
       {typeof index === "string" && (
-        <span className="absolute top-4 right-4 font-mono-plex text-xs text-[#4a4a4a]">
+        <span className="absolute top-4 right-4 font-mono-plex text-xs text-[#9AA3B8]">
           {index}
         </span>
       )}
 
-      <span className="absolute bottom-0 left-0 bg-black px-4 py-2 font-mono-plex text-[10px] sm:text-xs uppercase tracking-widest text-white/80 border-t border-r border-[#2A2A2A]">
+      <span className="absolute bottom-0 left-0 bg-[#1C3172] px-4 py-2 font-mono-plex text-[10px] sm:text-xs uppercase tracking-widest text-white border-t border-r border-[#1C3172]">
         {label}
       </span>
     </div>

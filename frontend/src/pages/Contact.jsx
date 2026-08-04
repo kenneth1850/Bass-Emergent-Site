@@ -5,7 +5,6 @@ import { Phone, Printer, Mail, MapPin, Clock, ArrowRight, Loader2 } from "lucide
 import { COMPANY } from "@/data/site";
 import { Reveal, MaskedLines } from "@/components/Reveal";
 import { usePageMeta } from "@/components/PageHero";
-import { Link } from "react-router-dom";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
@@ -13,8 +12,8 @@ const initial = { first_name: "", last_name: "", email: "", phone: "", comment: 
 
 const Field = ({ label, name, value, onChange, type = "text", required, testId, textarea }) => (
   <label className="block">
-    <span className="font-mono-plex text-[11px] uppercase tracking-widest text-[#8B8D98]">
-      {label} {required && <span className="text-[#E3000F]">*</span>}
+    <span className="font-mono-plex text-[11px] uppercase tracking-widest text-[#5B6270]">
+      {label} {required && <span className="text-[#1C3172]">*</span>}
     </span>
     {textarea ? (
       <textarea
@@ -24,7 +23,7 @@ const Field = ({ label, name, value, onChange, type = "text", required, testId, 
         required={required}
         rows={5}
         data-testid={testId}
-        className="mt-2 w-full bg-[#0e0e0e] border border-[#2A2A2A] px-4 py-3 text-white placeholder-[#5a5a5a] outline-none transition-colors duration-300 focus:border-[#E3000F] resize-none"
+        className="mt-2 w-full bg-white border border-[#D7DCE6] px-4 py-3 text-[#1A1A1A] placeholder-[#9AA3B8] outline-none transition-colors duration-300 focus:border-[#1C3172] resize-none"
       />
     ) : (
       <input
@@ -34,7 +33,7 @@ const Field = ({ label, name, value, onChange, type = "text", required, testId, 
         onChange={onChange}
         required={required}
         data-testid={testId}
-        className="mt-2 w-full bg-[#0e0e0e] border border-[#2A2A2A] px-4 py-3 text-white placeholder-[#5a5a5a] outline-none transition-colors duration-300 focus:border-[#E3000F]"
+        className="mt-2 w-full bg-white border border-[#D7DCE6] px-4 py-3 text-[#1A1A1A] placeholder-[#9AA3B8] outline-none transition-colors duration-300 focus:border-[#1C3172]"
       />
     )}
   </label>
@@ -68,32 +67,32 @@ const Contact = () => {
   return (
     <div data-testid="contact-page">
       {/* Split hero */}
-      <section className="pt-36 md:pt-44 blueprint-grid border-b border-[#1c1c1c]">
+      <section className="pt-36 md:pt-44 bg-[#F7F8FA] border-b border-[#E5E7EB]">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 pb-16">
-          <p className="overline text-[#E3000F] mb-6">[ Contact ]</p>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl uppercase text-white">
-            <MaskedLines lines={["Need a Lift?"]} />
-            <MaskedLines lines={["Contact Us!"]} start={0.25} lineClassName="text-[#E3000F]" />
+          <p className="overline text-[#1C3172] mb-6">[ Contact ]</p>
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl uppercase">
+            <MaskedLines lines={["Need a Lift?"]} lineClassName="text-[#1A1A1A]" />
+            <MaskedLines lines={["Contact Us!"]} start={0.25} lineClassName="text-[#1C3172]" />
           </h1>
         </div>
       </section>
 
-      <section className="border-b border-[#1c1c1c]">
+      <section className="bg-white border-b border-[#E5E7EB]">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 py-16 md:py-24 grid lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Left: info + booking */}
           <div>
             <Reveal>
-              <p className="overline text-[#E3000F] mb-4">[ Book a Crane or Truck ]</p>
-              <p className="text-[#c9c9cf] text-lg leading-relaxed max-w-lg">
+              <p className="overline text-[#1C3172] mb-4">[ Book a Crane or Truck ]</p>
+              <p className="text-[#2B2F38] text-lg leading-relaxed max-w-lg">
                 Call us anytime, 24/7, to schedule a crane or truck for your project. We're always
                 ready to serve our customers!
               </p>
               <a
                 href={COMPANY.phoneHref}
                 data-testid="contact-call-big"
-                className="group mt-10 flex items-center gap-4 text-white hover:text-[#E3000F] transition-colors duration-300"
+                className="group mt-10 flex items-center gap-4 text-[#1A1A1A] hover:text-[#1C3172] transition-colors duration-300"
               >
-                <span className="w-14 h-14 grid place-items-center border border-[#2A2A2A] group-hover:border-[#E3000F] transition-colors duration-300">
+                <span className="w-14 h-14 grid place-items-center border border-[#D7DCE6] group-hover:border-[#1C3172] transition-colors duration-300">
                   <Phone className="w-6 h-6" />
                 </span>
                 <span className="font-display text-4xl md:text-5xl uppercase">{COMPANY.phone}</span>
@@ -101,21 +100,21 @@ const Contact = () => {
             </Reveal>
 
             <Reveal delay={0.1}>
-              <ul className="mt-12 space-y-5 text-[#c9c9cf]">
+              <ul className="mt-12 space-y-5 text-[#2B2F38]">
                 <li className="flex items-center gap-4">
-                  <Printer className="w-5 h-5 text-[#E3000F] shrink-0" /> Fax: {COMPANY.fax}
+                  <Printer className="w-5 h-5 text-[#1C3172] shrink-0" /> Fax: {COMPANY.fax}
                 </li>
                 <li className="flex items-center gap-4">
-                  <Mail className="w-5 h-5 text-[#E3000F] shrink-0" />
-                  <a href={`mailto:${COMPANY.email}`} className="hover:text-white transition-colors duration-300">{COMPANY.email}</a>
+                  <Mail className="w-5 h-5 text-[#1C3172] shrink-0" />
+                  <a href={`mailto:${COMPANY.email}`} className="hover:text-[#1C3172] transition-colors duration-300">{COMPANY.email}</a>
                 </li>
                 <li className="flex items-start gap-4">
-                  <MapPin className="w-5 h-5 text-[#E3000F] shrink-0 mt-1" />
+                  <MapPin className="w-5 h-5 text-[#1C3172] shrink-0 mt-1" />
                   <span>{COMPANY.addressLine1}<br />{COMPANY.addressLine2}</span>
                 </li>
                 <li className="flex items-start gap-4">
-                  <Clock className="w-5 h-5 text-[#E3000F] shrink-0 mt-1" />
-                  <span>{COMPANY.hours}<br /><span className="text-[#8B8D98]">Phone answered 24/7 for scheduling</span></span>
+                  <Clock className="w-5 h-5 text-[#1C3172] shrink-0 mt-1" />
+                  <span>{COMPANY.hours}<br /><span className="text-[#5B6270]">Phone answered 24/7 for scheduling</span></span>
                 </li>
               </ul>
             </Reveal>
@@ -123,9 +122,9 @@ const Contact = () => {
 
           {/* Right: form */}
           <Reveal delay={0.15}>
-            <div className="bg-[#0e0e0e] border border-[#2A2A2A] p-8 md:p-10">
+            <div className="bg-[#F7F8FA] border border-[#E5E7EB] p-8 md:p-10">
               {/* Wire form submissions to company email once confirmed */}
-              <h2 className="text-2xl md:text-3xl uppercase text-white mb-8">Send Us a Message</h2>
+              <h2 className="text-2xl md:text-3xl uppercase text-[#1A1A1A] mb-8">Send Us a Message</h2>
               <form onSubmit={onSubmit} className="space-y-6" data-testid="contact-form">
                 <div className="grid sm:grid-cols-2 gap-6">
                   <Field label="First Name" name="first_name" value={form.first_name} onChange={onChange} required testId="contact-first-name" />
@@ -138,7 +137,7 @@ const Contact = () => {
                   type="submit"
                   disabled={loading}
                   data-testid="contact-submit"
-                  className="group w-full inline-flex items-center justify-center gap-3 bg-[#E3000F] text-white px-8 py-5 font-mono-plex uppercase tracking-widest text-sm transition-colors duration-300 hover:bg-white hover:text-[#050505] disabled:opacity-60"
+                  className="group w-full inline-flex items-center justify-center gap-3 bg-[#1C3172] text-white px-8 py-5 font-mono-plex uppercase tracking-widest text-sm transition-colors duration-300 hover:bg-[#142457] disabled:opacity-60"
                 >
                   {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <>Send <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" /></>}
                 </button>
@@ -149,15 +148,15 @@ const Contact = () => {
       </section>
 
       {/* Map */}
-      <section data-testid="contact-map" className="border-b border-[#1c1c1c]">
+      <section data-testid="contact-map" className="bg-white border-b border-[#E5E7EB]">
         <div className="flex items-center gap-4 max-w-[1440px] mx-auto px-6 md:px-12 py-6">
-          <MapPin className="w-4 h-4 text-[#E3000F]" />
-          <span className="font-mono-plex text-xs uppercase tracking-widest text-[#8B8D98]">{COMPANY.address}</span>
+          <MapPin className="w-4 h-4 text-[#1C3172]" />
+          <span className="font-mono-plex text-xs uppercase tracking-widest text-[#5B6270]">{COMPANY.address}</span>
         </div>
         <iframe
           title="Bass Crane Service location map"
           src={COMPANY.mapEmbed}
-          className="w-full h-[420px] grayscale contrast-125 border-t border-[#2A2A2A]"
+          className="w-full h-[420px] border-t border-[#E5E7EB]"
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         />

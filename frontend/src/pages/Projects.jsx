@@ -20,7 +20,7 @@ const Projects = () => {
       />
 
       {/* Project case studies and photos to be added */}
-      <section className="max-w-[1440px] mx-auto px-6 md:px-12 py-20 md:py-28" data-testid="projects-gallery">
+      <section className="max-w-[1440px] mx-auto px-6 md:px-12 py-20 md:py-28 bg-white" data-testid="projects-gallery">
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 [column-fill:_balance]">
           {PROJECTS.map((p, i) => (
             <Reveal key={i} delay={(i % 3) * 0.06} className="mb-6 break-inside-avoid">

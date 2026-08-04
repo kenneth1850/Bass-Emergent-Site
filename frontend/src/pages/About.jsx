@@ -20,25 +20,25 @@ const About = () => {
       />
 
       {/* Editorial story */}
-      <section className="relative overflow-hidden border-b border-[#1c1c1c]">
-        <div className="absolute inset-0 flex items-center pointer-events-none opacity-[0.04]">
+      <section className="relative overflow-hidden bg-white border-b border-[#E5E7EB]">
+        <div className="absolute inset-0 flex items-center pointer-events-none opacity-[0.05]">
           <Marquee
-            className="font-display text-[16vw] uppercase text-white leading-none"
+            className="font-display text-[16vw] uppercase text-[#1C3172] leading-none"
             items={["A Family Business Since 1913", "We Lift Richmond to New Heights"]}
           />
         </div>
         <div className="relative max-w-[1440px] mx-auto px-6 md:px-12 py-24 md:py-32 grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-4">
             <div className="lg:sticky lg:top-32">
-              <p className="overline text-[#E3000F] mb-6">[ Our Story ]</p>
-              <h2 className="text-4xl md:text-5xl uppercase text-white">
+              <p className="overline text-[#1C3172] mb-6">[ Our Story ]</p>
+              <h2 className="text-4xl md:text-5xl uppercase text-[#1A1A1A]">
                 <MaskedLinesInView lines={["Three", "Generations", "Strong"]} />
               </h2>
             </div>
           </div>
           <div className="lg:col-span-7 lg:col-start-6 space-y-8">
             <Reveal>
-              <p className="text-[#c9c9cf] text-lg md:text-xl leading-relaxed">
+              <p className="text-[#2B2F38] text-lg md:text-xl leading-relaxed">
                 Bass Crane Service has been providing crane and truck rental services to Richmond and
                 the surrounding areas for 3 generations. Our family business has been in and around
                 construction since 1913.
@@ -48,7 +48,7 @@ const About = () => {
               <Placeholder label="PLACEHOLDER: HISTORICAL / FAMILY PHOTO" className="aspect-[16/10] w-full" parallax index="H-01" />
             </Reveal>
             <Reveal delay={0.1}>
-              <p className="text-[#8B8D98] text-base md:text-lg leading-relaxed">
+              <p className="text-[#5B6270] text-base md:text-lg leading-relaxed">
                 Bass Crane has CCO Certified Crane Operators available — CCO is the most recognized
                 certification by OSHA. We believe in doing the job right — every time — in a safe and
                 secure manner.
@@ -62,13 +62,13 @@ const About = () => {
       </section>
 
       {/* Values */}
-      <section className="border-b border-[#1c1c1c]" data-testid="about-values">
+      <section className="bg-[#F7F8FA] border-b border-[#E5E7EB]" data-testid="about-values">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 py-20 md:py-24">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 lg:divide-x divide-[#2A2A2A]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 lg:divide-x divide-[#E5E7EB]">
             {VALUES.map((v, i) => (
               <Reveal key={v} delay={i * 0.08} className="px-0 lg:px-8 py-8 lg:py-0 first:lg:pl-0">
-                <span className="font-mono-plex text-xs text-[#E3000F]">0{i + 1}</span>
-                <p className="mt-4 font-display text-2xl md:text-3xl uppercase text-white leading-tight">
+                <span className="font-mono-plex text-xs text-[#1C3172]">0{i + 1}</span>
+                <p className="mt-4 font-display text-2xl md:text-3xl uppercase text-[#1A1A1A] leading-tight">
                   {v}
                 </p>
               </Reveal>
