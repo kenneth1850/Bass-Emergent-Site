@@ -24,7 +24,7 @@ export const PageHero = ({ eyebrow, titleLines = [], intro, testId }) => (
   >
     <div className="absolute top-0 left-0 h-full w-px bg-[#1C3172]/40 ml-6 md:ml-12" />
     <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-      <nav className="font-mono-plex text-[11px] uppercase tracking-widest text-[#5B6270] mb-8">
+      <nav className="font-mono-plex text-sm uppercase tracking-widest text-[#5B6270] mb-8">
         <Link to="/" className="hover:text-[#1C3172] transition-colors duration-300">Home</Link>
         <span className="mx-2 text-[#1C3172]">/</span>
         <span className="text-[#1A1A1A]">{eyebrow}</span>

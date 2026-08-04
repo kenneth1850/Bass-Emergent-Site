@@ -12,7 +12,7 @@ export const Footer = () => (
             {/* PLACEHOLDER: white footer logo variant to be supplied */}
             <img src={COMPANY.logo} alt={COMPANY.logoAlt} className="h-12 w-auto object-contain" />
           </Link>
-          <p className="mt-6 max-w-sm text-white/70 text-sm leading-relaxed">
+          <p className="mt-6 max-w-sm text-white/70 text-base leading-relaxed">
             Crane and truck rental, rigging, and hauling for Richmond and the Commonwealth of
             Virginia — family-owned and lifting since {COMPANY.since}.
           </p>
@@ -79,10 +79,10 @@ export const Footer = () => (
       </div>
 
       <div className="mt-16 pt-8 border-t border-white/15 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p className="font-mono-plex text-xs text-white/60 uppercase tracking-widest">
+        <p className="font-mono-plex text-[13px] text-white/60 uppercase tracking-widest">
           © {COMPANY.name}. All Rights Reserved.
         </p>
-        <p className="font-mono-plex text-xs text-white/60 uppercase tracking-widest">
+        <p className="font-mono-plex text-[13px] text-white/60 uppercase tracking-widest">
           We Lift Richmond to New Heights
         </p>
       </div>

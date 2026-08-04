@@ -6,7 +6,7 @@ import { COMPANY, NAV } from "@/data/site";
 
 const UtilityBar = () => (
   <div className="hidden md:block bg-[#1C3172] text-white" data-testid="utility-bar">
-    <div className="max-w-[1440px] mx-auto px-6 md:px-12 h-10 flex items-center justify-between font-mono-plex text-[11px] text-white/85">
+    <div className="max-w-[1440px] mx-auto px-6 md:px-12 h-10 flex items-center justify-between font-mono-plex text-sm text-white/85">
       <div className="flex items-center gap-6">
         <a href={COMPANY.phoneHref} className="flex items-center gap-2 hover:text-white transition-colors duration-300" data-testid="utility-phone">
           <Phone className="w-3 h-3 text-white" /> {COMPANY.phone}
@@ -59,7 +59,7 @@ export const Header = () => {
                 to={item.to}
                 data-testid={`nav-${item.to.replace("/", "")}`}
                 className={({ isActive }) =>
-                  `font-mono-plex text-xs uppercase tracking-widest transition-colors duration-300 ${
+                  `font-mono-plex text-sm uppercase tracking-widest transition-colors duration-300 ${
                     isActive ? "text-[#1C3172]" : "text-[#1A1A1A]/70 hover:text-[#1C3172]"
                   }`
                 }
@@ -73,7 +73,7 @@ export const Header = () => {
             <a
               href={COMPANY.phoneHref}
               data-testid="header-call-btn"
-              className="hidden sm:inline-flex items-center gap-2 bg-[#1C3172] text-white px-5 py-3 font-mono-plex text-xs uppercase tracking-widest transition-colors duration-300 hover:bg-[#142457]"
+              className="hidden sm:inline-flex items-center gap-2 bg-[#1C3172] text-white px-5 py-3 font-mono-plex text-sm uppercase tracking-widest transition-colors duration-300 hover:bg-[#142457]"
             >
               <Phone className="w-3.5 h-3.5" />
               <span className="hidden xl:inline">Call 24/7:</span> {COMPANY.phone}

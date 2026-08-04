@@ -55,12 +55,12 @@ export const Placeholder = ({
       </motion.div>
 
       {typeof index === "string" && (
-        <span className="absolute top-4 right-4 font-mono-plex text-xs text-[#9AA3B8]">
+        <span className="absolute top-4 right-4 font-mono-plex text-sm text-[#9AA3B8]">
           {index}
         </span>
       )}
 
-      <span className="absolute bottom-0 left-0 bg-[#1C3172] px-4 py-2 font-mono-plex text-[10px] sm:text-xs uppercase tracking-widest text-white border-t border-r border-[#1C3172]">
+      <span className="absolute bottom-0 left-0 bg-[#1C3172] px-4 py-2 font-mono-plex text-sm uppercase tracking-widest text-white border-t border-r border-[#1C3172]">
         {label}
       </span>
     </div>

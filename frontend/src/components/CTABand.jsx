@@ -12,7 +12,7 @@ export const CTABand = ({
     <div className="max-w-[1440px] mx-auto px-6 md:px-12 py-20 md:py-28">
       <div className="grid lg:grid-cols-[1fr_auto] gap-10 lg:gap-16 items-end">
         <div>
-          <p className="font-mono-plex uppercase tracking-[0.25em] text-xs mb-6 text-white/60">
+          <p className="font-mono-plex uppercase tracking-[0.25em] text-sm mb-6 text-white/60">
             [ 24/7 Dispatch ]
           </p>
           <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl uppercase text-white">

@@ -67,7 +67,7 @@ const About = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 lg:divide-x divide-[#E5E7EB]">
             {VALUES.map((v, i) => (
               <Reveal key={v} delay={i * 0.08} className="px-0 lg:px-8 py-8 lg:py-0 first:lg:pl-0">
-                <span className="font-mono-plex text-xs text-[#1C3172]">0{i + 1}</span>
+                <span className="font-mono-plex text-sm text-[#1C3172]">0{i + 1}</span>
                 <p className="mt-4 font-display text-2xl md:text-3xl uppercase text-[#1A1A1A] leading-tight">
                   {v}
                 </p>

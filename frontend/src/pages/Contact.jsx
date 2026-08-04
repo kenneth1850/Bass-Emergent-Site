@@ -12,7 +12,7 @@ const initial = { first_name: "", last_name: "", email: "", phone: "", comment: 
 
 const Field = ({ label, name, value, onChange, type = "text", required, testId, textarea }) => (
   <label className="block">
-    <span className="font-mono-plex text-[11px] uppercase tracking-widest text-[#5B6270]">
+    <span className="font-mono-plex text-sm uppercase tracking-widest text-[#5B6270]">
       {label} {required && <span className="text-[#1C3172]">*</span>}
     </span>
     {textarea ? (
@@ -151,7 +151,7 @@ const Contact = () => {
       <section data-testid="contact-map" className="bg-white border-b border-[#E5E7EB]">
         <div className="flex items-center gap-4 max-w-[1440px] mx-auto px-6 md:px-12 py-6">
           <MapPin className="w-4 h-4 text-[#1C3172]" />
-          <span className="font-mono-plex text-xs uppercase tracking-widest text-[#5B6270]">{COMPANY.address}</span>
+          <span className="font-mono-plex text-sm uppercase tracking-widest text-[#5B6270]">{COMPANY.address}</span>
         </div>
         <iframe
           title="Bass Crane Service location map"

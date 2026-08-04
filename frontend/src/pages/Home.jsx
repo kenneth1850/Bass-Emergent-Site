@@ -33,7 +33,7 @@ const Hero = () => {
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_25%,#F1F4FA,transparent_55%)]" />
         <motion.div style={{ y }} className="absolute right-6 md:right-12 top-1/4 hidden md:block">
-          <span className="font-mono-plex text-[11px] uppercase tracking-widest text-[#AEB5C4] [writing-mode:vertical-rl]">
+          <span className="font-mono-plex text-sm uppercase tracking-widest text-[#AEB5C4] [writing-mode:vertical-rl]">
             PLACEHOLDER: HERO — CRANE AGAINST RICHMOND SKYLINE
           </span>
         </motion.div>
@@ -152,11 +152,11 @@ const Home = () => {
                 >
                   <div className="flex items-center justify-between mb-16">
                     <Icon className="w-8 h-8 text-[#1C3172]" strokeWidth={1.5} />
-                    <span className="font-mono-plex text-xs text-[#AEB5C4]">{s.num}</span>
+                    <span className="font-mono-plex text-sm text-[#AEB5C4]">{s.num}</span>
                   </div>
                   <h3 className="text-2xl md:text-3xl uppercase text-[#1A1A1A] mb-4">{s.title}</h3>
-                  <p className="text-[#5B6270] text-sm leading-relaxed flex-1">{s.short}</p>
-                  <span className="mt-8 inline-flex items-center gap-2 font-mono-plex uppercase tracking-widest text-xs text-[#5B6270] group-hover:text-[#1C3172] transition-colors duration-300">
+                  <p className="text-[#5B6270] text-base leading-relaxed flex-1">{s.short}</p>
+                  <span className="mt-8 inline-flex items-center gap-2 font-mono-plex uppercase tracking-widest text-sm text-[#5B6270] group-hover:text-[#1C3172] transition-colors duration-300">
                     Explore
                     <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
                   </span>
@@ -184,7 +184,7 @@ const Home = () => {
             {[1, 2, 3, 4].map((n) => (
               <Reveal key={n} delay={n * 0.06}>
                 <div className="h-24 bg-white border border-dashed border-[#CBD2DE] grid place-items-center">
-                  <span className="font-mono-plex text-[10px] uppercase tracking-widest text-[#9AA3B8] text-center px-2">
+                  <span className="font-mono-plex text-sm leading-snug uppercase tracking-wide text-[#9AA3B8] text-center px-2">
                     PLACEHOLDER: ASSOCIATION / CERTIFICATION LOGO
                   </span>
                 </div>

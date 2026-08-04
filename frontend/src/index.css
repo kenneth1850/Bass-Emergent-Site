@@ -78,7 +78,8 @@ html.lenis, html.lenis body { height: auto; }
     font-family: "IBM Plex Mono", monospace;
     text-transform: uppercase;
     letter-spacing: 0.25em;
-    font-size: 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
     font-weight: 500;
 }
 
