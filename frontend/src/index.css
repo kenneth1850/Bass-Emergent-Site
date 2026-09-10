@@ -98,6 +98,32 @@ html.lenis, html.lenis body { height: auto; }
 /* Masked reveal helper */
 .reveal-mask { overflow: hidden; display: block; }
 
+/* Load-time animations (pure CSS — always end in the visible state) */
+@keyframes rise-in {
+    from { transform: translateY(110%); }
+    to   { transform: translateY(0); }
+}
+@keyframes fade-up {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@keyframes slide-in-left {
+    from { opacity: 0; transform: translateX(-30px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+.anim-rise       { animation: rise-in 1.1s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.anim-fade-up    { animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-fade-in    { animation: fade-in 0.3s ease-out both; }
+.anim-slide-left { animation: slide-in-left 0.4s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+    .anim-rise, .anim-fade-up, .anim-fade-in, .anim-slide-left { animation: none; }
+}
+
 /* Placeholder registration marks */
 .placeholder-frame::after {
     content: "";

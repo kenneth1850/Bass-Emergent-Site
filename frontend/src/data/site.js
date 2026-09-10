@@ -15,7 +15,8 @@ export const COMPANY = {
   hours: "Mon–Fri, 7:30 AM – 4:00 PM",
   hoursShort: "Mon–Fri 7:30a–4:00p",
   serviceArea: "Richmond, VA, surrounding areas, and the Commonwealth of Virginia",
-  logo: "https://basscrane.com/wp-content/uploads/2023/05/logo.jpg",
+  logo: "/logo.svg",
+  logoPng: "/logo.png",
   logoAlt: "Bass Crane Service, Richmond VA",
   mapEmbed:
     "https://www.google.com/maps?q=1004+Holly+Spring+Ave,+Richmond,+VA+23224&output=embed",

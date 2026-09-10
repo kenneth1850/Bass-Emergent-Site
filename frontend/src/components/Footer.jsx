@@ -8,9 +8,8 @@ export const Footer = () => (
       <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1.2fr]">
         {/* Brand */}
         <div>
-          <Link to="/" className="inline-flex bg-white rounded-md px-3 py-2" data-testid="footer-logo">
-            {/* PLACEHOLDER: white footer logo variant to be supplied */}
-            <img src={COMPANY.logo} alt={COMPANY.logoAlt} className="h-12 w-auto object-contain" />
+          <Link to="/" className="inline-flex" data-testid="footer-logo">
+            <img src={COMPANY.logo} alt={COMPANY.logoAlt} className="h-14 w-auto object-contain" />
           </Link>
           <p className="mt-6 max-w-sm text-white/70 text-base leading-relaxed">
             Crane and truck rental, rigging, and hauling for Richmond and the Commonwealth of

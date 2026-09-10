@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Mail, Clock, Menu, X, ArrowUpRight } from "lucide-react";
 import { COMPANY, NAV } from "@/data/site";
 
@@ -34,6 +33,14 @@ export const Header = () => {
   }, []);
 
   useEffect(() => setOpen(false), [location.pathname]);
+
+  // Close the mobile menu with Escape
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
 
   return (
     <header className="fixed top-0 inset-x-0 z-50" data-testid="site-header">
@@ -90,14 +97,13 @@ export const Header = () => {
         </div>
       </div>
 
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-white lg:hidden flex flex-col"
+      {open && (
+          <div
+            className="fixed inset-0 z-50 bg-white lg:hidden flex flex-col anim-fade-in"
             data-testid="mobile-menu"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Site menu"
           >
             <div className="flex items-center justify-between h-20 px-6 border-b border-[#E5E7EB]">
               <img src={COMPANY.logo} alt={COMPANY.logoAlt} className="h-10 w-auto" />
@@ -107,11 +113,10 @@ export const Header = () => {
             </div>
             <nav className="flex-1 flex flex-col justify-center px-6">
               {NAV.map((item, i) => (
-                <motion.div
+                <div
                   key={item.to}
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.05 * i + 0.1 }}
+                  className="anim-slide-left"
+                  style={{ animationDelay: `${0.05 * i + 0.1}s` }}
                 >
                   <NavLink
                     to={item.to}
@@ -121,7 +126,7 @@ export const Header = () => {
                     <span className="font-display text-4xl uppercase text-[#1A1A1A]">{item.label}</span>
                     <ArrowUpRight className="w-6 h-6 text-[#1C3172]" />
                   </NavLink>
-                </motion.div>
+                </div>
               ))}
             </nav>
             <div className="p-6 border-t border-[#E5E7EB]">
@@ -132,9 +137,8 @@ export const Header = () => {
                 <Phone className="w-4 h-4" /> Call 24/7: {COMPANY.phone}
               </a>
             </div>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
     </header>
   );
 };

@@ -14,24 +14,27 @@ export const Reveal = ({ children, delay = 0, y = 40, className = "", ...rest })
   </motion.div>
 );
 
-// Masked line-by-line reveal for large display headings.
-// Pass an array of lines (strings).
+// Fade + rise on page load. Pure CSS so it can never get stuck hidden.
+// `delay` is in seconds.
+export const FadeUp = ({ children, delay = 0, className = "", as: Tag = "div", ...rest }) => (
+  <Tag className={`anim-fade-up ${className}`} style={{ animationDelay: `${delay}s` }} {...rest}>
+    {children}
+  </Tag>
+);
+
+// Masked line-by-line reveal for large display headings, played on page load.
+// Pure CSS animation: the text is always visible once the animation finishes,
+// even if JavaScript-driven animation is unavailable.
 export const MaskedLines = ({ lines = [], className = "", lineClassName = "", start = 0.15 }) => (
   <span className={className}>
     {lines.map((line, i) => (
       <span key={i} className="reveal-mask">
-        <motion.span
-          className={`block ${lineClassName}`}
-          initial={{ y: "110%" }}
-          animate={{ y: "0%" }}
-          transition={{
-            duration: 1.1,
-            delay: start + i * 0.12,
-            ease: [0.16, 1, 0.3, 1],
-          }}
+        <span
+          className={`block anim-rise ${lineClassName}`}
+          style={{ animationDelay: `${start + i * 0.12}s` }}
         >
           {line}
-        </motion.span>
+        </span>
       </span>
     ))}
   </span>

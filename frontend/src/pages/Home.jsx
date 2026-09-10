@@ -6,7 +6,7 @@ import {
   ArrowRight, ArrowUpRight, ShieldCheck,
 } from "lucide-react";
 import { COMPANY, SERVICES } from "@/data/site";
-import { MaskedLines, Reveal, MaskedLinesInView } from "@/components/Reveal";
+import { MaskedLines, Reveal, MaskedLinesInView, FadeUp } from "@/components/Reveal";
 import { Placeholder } from "@/components/Placeholder";
 import { Marquee } from "@/components/Marquee";
 import { CTABand } from "@/components/CTABand";
@@ -40,26 +40,16 @@ const Hero = () => {
       </div>
 
       <motion.div style={{ opacity }} className="relative max-w-[1440px] mx-auto w-full px-6 md:px-12 pb-24 md:pb-28 pt-40">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, duration: 0.6 }}
-          className="overline text-[#1C3172] mb-8 flex items-center gap-3"
-        >
+        <FadeUp as="p" delay={0.1} className="overline text-[#1C3172] mb-8 flex items-center gap-3">
           <span className="w-10 h-px bg-[#1C3172]" /> Since {COMPANY.since} · Richmond, VA
-        </motion.p>
+        </FadeUp>
 
         <h1 className="text-[15vw] sm:text-[13vw] md:text-[11vw] lg:text-[9.5vw] leading-[0.9] uppercase">
           <MaskedLines lines={["We Lift Richmond"]} start={0.2} lineClassName="text-[#1A1A1A]" />
           <MaskedLines lines={["To New Heights"]} start={0.35} lineClassName="text-[#1C3172]" />
         </h1>
 
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 0.7 }}
-          className="mt-10 grid gap-8 md:grid-cols-[1fr_auto] md:items-end"
-        >
+        <FadeUp delay={0.9} className="mt-10 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
           <p className="max-w-xl text-[#4A4F5A] text-base md:text-lg leading-relaxed">
             Crane and truck rental, rigging, and hauling — done right, every time, for over 100 years.
           </p>
@@ -73,7 +63,7 @@ const Hero = () => {
               <ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>
-        </motion.div>
+        </FadeUp>
       </motion.div>
 
       <div className="relative border-y border-[#E5E7EB] bg-[#F7F8FA]">
