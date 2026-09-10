@@ -24,41 +24,45 @@ const ICONS = {
 const Hero = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], [0, 160]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, 60]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
-    <section ref={ref} className="relative min-h-screen flex flex-col justify-end overflow-hidden bg-white" data-testid="home-hero">
-      {/* PLACEHOLDER: hero — crane against Richmond skyline */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_25%,#F1F4FA,transparent_55%)]" />
-        <motion.div style={{ y }} className="absolute right-6 md:right-12 top-1/4 hidden md:block">
-          <span className="font-mono-plex text-sm uppercase tracking-widest text-[#AEB5C4] [writing-mode:vertical-rl]">
-            PLACEHOLDER: HERO — CRANE AGAINST RICHMOND SKYLINE
-          </span>
-        </motion.div>
-      </div>
+    <section ref={ref} className="relative min-h-screen flex flex-col justify-end overflow-hidden bg-[#0F1D45]" data-testid="home-hero">
+      {/* Photo background with slow parallax drift */}
+      <motion.div style={{ y }} className="absolute -inset-y-16 inset-x-0">
+        <img
+          src={COMPANY.heroImage}
+          alt={COMPANY.heroImageAlt}
+          fetchpriority="high"
+          decoding="async"
+          className="w-full h-full object-cover object-[70%_center]"
+        />
+      </motion.div>
+      {/* Navy gradient: strong on the left for text legibility, light on the right so the crane reads */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0F1D45]/90 via-[#0F1D45]/60 to-[#0F1D45]/15" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0F1D45]/80 via-transparent to-[#0F1D45]/30" />
 
       <motion.div style={{ opacity }} className="relative max-w-[1440px] mx-auto w-full px-6 md:px-12 pb-24 md:pb-28 pt-40">
-        <FadeUp as="p" delay={0.1} className="overline text-[#1C3172] mb-8 flex items-center gap-3">
-          <span className="w-10 h-px bg-[#1C3172]" /> Since {COMPANY.since} · Richmond, VA
+        <FadeUp as="p" delay={0.1} className="overline text-white/80 mb-8 flex items-center gap-3">
+          <span className="w-10 h-px bg-white/70" /> Since {COMPANY.since} · Richmond, VA
         </FadeUp>
 
-        <h1 className="text-[15vw] sm:text-[13vw] md:text-[11vw] lg:text-[9.5vw] leading-[0.9] uppercase">
-          <MaskedLines lines={["We Lift Richmond"]} start={0.2} lineClassName="text-[#1A1A1A]" />
-          <MaskedLines lines={["To New Heights"]} start={0.35} lineClassName="text-[#1C3172]" />
+        <h1 className="text-[14vw] sm:text-[12vw] md:text-[9.5vw] lg:text-[8vw] xl:text-[7.5vw] leading-[0.9] uppercase">
+          <MaskedLines lines={["We Lift Richmond"]} start={0.2} lineClassName="text-white" />
+          <MaskedLines lines={["To New Heights"]} start={0.35} lineClassName="text-[#9FB4E8]" />
         </h1>
 
         <FadeUp delay={0.9} className="mt-10 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
-          <p className="max-w-xl text-[#4A4F5A] text-base md:text-lg leading-relaxed">
+          <p className="max-w-xl text-white/80 text-base md:text-lg leading-relaxed">
             Crane and truck rental, rigging, and hauling — done right, every time, for over 100 years.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Link to="/contact" data-testid="hero-book-btn" className="group inline-flex items-center justify-center gap-3 bg-[#1C3172] text-white px-8 py-5 font-mono-plex uppercase tracking-widest text-sm transition-colors duration-300 hover:bg-[#142457]">
+            <Link to="/contact" data-testid="hero-book-btn" className="group inline-flex items-center justify-center gap-3 bg-white text-[#1C3172] px-8 py-5 font-mono-plex uppercase tracking-widest text-sm transition-colors duration-300 hover:bg-[#E8EDF8]">
               Book a Crane or Truck
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
-            <Link to="/services" data-testid="hero-services-btn" className="group inline-flex items-center justify-center gap-3 border border-[#1C3172]/40 text-[#1C3172] px-8 py-5 font-mono-plex uppercase tracking-widest text-sm transition-colors duration-300 hover:bg-[#1C3172] hover:text-white">
+            <Link to="/services" data-testid="hero-services-btn" className="group inline-flex items-center justify-center gap-3 border border-white/50 text-white px-8 py-5 font-mono-plex uppercase tracking-widest text-sm transition-colors duration-300 hover:bg-white hover:text-[#1C3172]">
               See Our Services
               <ArrowUpRight className="w-4 h-4" />
             </Link>
@@ -197,8 +201,20 @@ const Home = () => {
             </Link>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
-            <Placeholder label="PLACEHOLDER: PROJECT PHOTO — DOWNTOWN STEEL SET" className="aspect-[4/3]" parallax index="A-01" testId="teaser-project-1" />
-            <Placeholder label="PLACEHOLDER: PROJECT PHOTO — 160-TON COMMERCIAL LIFT" className="aspect-[4/3] md:mt-16" parallax index="A-02" testId="teaser-project-2" />
+            <Placeholder
+              src="/images/teaser-downtown.jpg"
+              alt="Bass Crane boom extended beside a downtown Richmond high-rise"
+              className="aspect-[4/3]"
+              parallax
+              testId="teaser-project-1"
+            />
+            <Placeholder
+              src="/images/teaser-lift.jpg"
+              alt="160-ton Bass Crane setting a highway sign structure at night for VDOT"
+              className="aspect-[4/3] md:mt-16"
+              parallax
+              testId="teaser-project-2"
+            />
           </div>
         </div>
       </section>

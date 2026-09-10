@@ -34,6 +34,8 @@ const Services = () => {
               <Reveal className={flip ? "lg:order-2" : ""}>
                 <Placeholder
                   label={s.placeholder}
+                  src={s.image}
+                  alt={s.imageAlt}
                   className="aspect-[4/3] w-full"
                   parallax
                   index={`S-${s.num}`}

@@ -2,12 +2,17 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 /**
- * Premium gray labeled image placeholder with a blueprint registration frame,
- * corner mono label, and optional parallax on scroll. Light theme.
- * Real photography will replace these later.
+ * Image slot with a blueprint registration frame and optional parallax on scroll.
+ *
+ * - With `src`: renders the photo (object-cover), with a subtle parallax drift and
+ *   a hover zoom. `alt` is required for accessibility.
+ * - Without `src`: renders the gray labeled placeholder so unfinished slots stay
+ *   visibly unfinished.
  */
 export const Placeholder = ({
   label,
+  src,
+  alt = "",
   className = "",
   parallax = false,
   index,
@@ -19,6 +24,32 @@ export const Placeholder = ({
     offset: ["start end", "end start"],
   });
   const y = useTransform(scrollYProgress, [0, 1], parallax ? [-30, 30] : [0, 0]);
+
+  if (src) {
+    return (
+      <div
+        ref={ref}
+        data-testid={testId}
+        className={`group relative overflow-hidden bg-[#EEF1F6] ${className}`}
+      >
+        <motion.div style={{ y }} className="absolute -inset-y-8 inset-x-0">
+          <img
+            src={src}
+            alt={alt}
+            loading="lazy"
+            decoding="async"
+            className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+          />
+        </motion.div>
+        <div className="placeholder-frame absolute inset-0 pointer-events-none" />
+        {typeof index === "string" && (
+          <span className="absolute top-4 right-4 font-mono-plex text-xs text-white/70 bg-[#1C3172]/60 px-2 py-1 backdrop-blur-sm">
+            {index}
+          </span>
+        )}
+      </div>
+    );
+  }
 
   return (
     <div
@@ -37,10 +68,7 @@ export const Placeholder = ({
         }}
       />
 
-      <motion.div
-        style={{ y }}
-        className="absolute inset-0 flex items-center justify-center"
-      >
+      <motion.div style={{ y }} className="absolute inset-0 flex items-center justify-center">
         <svg
           className="w-16 h-16 text-[#B9C0D0] transition-colors duration-500 group-hover:text-[#1C3172]"
           viewBox="0 0 24 24"
@@ -55,9 +83,7 @@ export const Placeholder = ({
       </motion.div>
 
       {typeof index === "string" && (
-        <span className="absolute top-4 right-4 font-mono-plex text-sm text-[#9AA3B8]">
-          {index}
-        </span>
+        <span className="absolute top-4 right-4 font-mono-plex text-sm text-[#9AA3B8]">{index}</span>
       )}
 
       <span className="absolute bottom-0 left-0 bg-[#1C3172] px-4 py-2 font-mono-plex text-sm uppercase tracking-widest text-white border-t border-r border-[#1C3172]">

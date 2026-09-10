@@ -11,7 +11,9 @@ export const COMPANY = {
   phone: "804-233-0113",
   phoneHref: "tel:+18042330113",
   fax: "804-233-9187",
-  email: "info@basscrane.com", // PLACEHOLDER: confirm email
+  email: "info@basscrane.com",
+  heroImage: "/images/hero.jpg",
+  heroImageAlt: "Bass Crane 100-ton crane with boom raised against a dramatic morning sky on a Richmond jobsite",
   hours: "Mon–Fri, 7:30 AM – 4:00 PM",
   hoursShort: "Mon–Fri 7:30a–4:00p",
   serviceArea: "Richmond, VA, surrounding areas, and the Commonwealth of Virginia",
@@ -39,6 +41,8 @@ export const SERVICES = [
     short: "Cranes of all sizes from 30-ton to 160-ton for residential and commercial projects.",
     long: "Cranes of all sizes from 30-ton to 160-ton, operated by CCO Certified Crane Operators for both residential and commercial projects.",
     placeholder: "PLACEHOLDER: 160-TON CRANE LIFT ON RICHMOND JOBSITE",
+    image: "/images/service-crane-rental.jpg",
+    imageAlt: "Bass Crane Link-Belt crane set up in a rock quarry",
   },
   {
     id: "boom-trucks",
@@ -48,6 +52,8 @@ export const SERVICES = [
     short: "Ideal for lightweight lifting jobs.",
     long: "Boom trucks ideal for lightweight lifting jobs where speed, access, and precision matter most.",
     placeholder: "PLACEHOLDER: BOOM TRUCK ON RESIDENTIAL SITE",
+    image: "/images/service-boom-trucks.jpg",
+    imageAlt: "Boom truck lifting materials over a residential home build",
   },
   {
     id: "rigging-hauling",
@@ -57,6 +63,8 @@ export const SERVICES = [
     short: "Expertise in moving heavy equipment throughout Richmond and the Commonwealth of Virginia.",
     long: "An extensive rigging & hauling department with the expertise to move heavy equipment throughout Richmond and the Commonwealth of Virginia.",
     placeholder: "PLACEHOLDER: RIGGING CREW MOVING HEAVY EQUIPMENT",
+    image: "/images/service-rigging-hauling.jpg",
+    imageAlt: "Crane hook block and yellow rigging slings attached to a helicopter rotor head",
   },
   {
     id: "truck-rental",
@@ -66,6 +74,8 @@ export const SERVICES = [
     short: "Lowboys, equipment trailers, and rollbacks.",
     long: "Truck rental and transport with lowboys, equipment trailers, and rollbacks to move your machines where they need to be.",
     placeholder: "PLACEHOLDER: LOWBOY TRAILER LOADED WITH EQUIPMENT",
+    image: "/images/service-truck-rental.jpg",
+    imageAlt: "Bass Crane lowboy trailer transporting a military helicopter",
   },
   {
     id: "delivery-offloading",
@@ -75,6 +85,8 @@ export const SERVICES = [
     short: "We take delivery of your equipment and resources, then off-load and deliver to your location.",
     long: "We take delivery of your equipment and resources, then off-load and deliver them precisely to your location.",
     placeholder: "PLACEHOLDER: OFF-LOADING EQUIPMENT AT DELIVERY SITE",
+    image: "/images/service-delivery.jpg",
+    imageAlt: "Bass Crane Kenworth truck delivering a cooling tower unit",
   },
   {
     id: "storage",
@@ -84,6 +96,8 @@ export const SERVICES = [
     short: "Secure storage solutions for equipment and materials.",
     long: "Moving and secure storage solutions to keep your equipment and materials protected between projects.",
     placeholder: "PLACEHOLDER: SECURE EQUIPMENT STORAGE YARD",
+    image: "/images/service-storage.jpg",
+    imageAlt: "Bass Crane fleet of cranes lined up in the equipment yard",
   },
 ];
 
