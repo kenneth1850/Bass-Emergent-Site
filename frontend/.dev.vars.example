@@ -1,0 +1,5 @@
+# Local secrets for `wrangler pages dev` (copy to .dev.vars — never commit .dev.vars)
+RESEND_API_KEY=re_xxxxxxxxx
+CONTACT_TO=info@basscrane.com
+CONTACT_FROM=onboarding@resend.dev
+CONTACT_AUTOREPLY=false

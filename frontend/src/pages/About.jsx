@@ -1,4 +1,4 @@
-import { COMPANY, VALUES } from "@/data/site";
+import { COMPANY, VALUES, ABOUT_IMAGES } from "@/data/site";
 import { Reveal, MaskedLinesInView } from "@/components/Reveal";
 import { Placeholder } from "@/components/Placeholder";
 import { Marquee } from "@/components/Marquee";
@@ -45,7 +45,7 @@ const About = () => {
               </p>
             </Reveal>
             <Reveal delay={0.1}>
-              <Placeholder label="PLACEHOLDER: HISTORICAL / FAMILY PHOTO" className="aspect-[16/10] w-full" parallax index="H-01" />
+              <Placeholder src={ABOUT_IMAGES.owners.src} alt={ABOUT_IMAGES.owners.alt} className="aspect-[16/10] w-full" parallax />
             </Reveal>
             <Reveal delay={0.1}>
               <p className="text-[#5B6270] text-base md:text-lg leading-relaxed">
@@ -55,7 +55,7 @@ const About = () => {
               </p>
             </Reveal>
             <Reveal delay={0.1}>
-              <Placeholder label="PLACEHOLDER: TEAM PHOTO" className="aspect-[16/10] w-full" parallax index="H-02" />
+              <Placeholder src={ABOUT_IMAGES.team.src} alt={ABOUT_IMAGES.team.alt} className="aspect-[16/10] w-full" parallax />
             </Reveal>
           </div>
         </div>

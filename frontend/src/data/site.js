@@ -141,14 +141,75 @@ export const VALUES = [
   "24/7 Availability",
 ];
 
+// Projects gallery. `tall` tiles are 3:4 portrait; the rest are 4:3.
+// TODO: confirm titles/locations with Bass Crane before launch.
 export const PROJECTS = [
-  { label: "PLACEHOLDER: DOWNTOWN RICHMOND STEEL ERECTION", tall: true },
-  { label: "PLACEHOLDER: ROOFTOP HVAC UNIT SET" },
-  { label: "PLACEHOLDER: RESIDENTIAL TREE & STRUCTURE LIFT" },
-  { label: "PLACEHOLDER: 160-TON CRANE AT COMMERCIAL SITE", tall: true },
-  { label: "PLACEHOLDER: LOWBOY EQUIPMENT TRANSPORT" },
-  { label: "PLACEHOLDER: RIGGING HEAVY MACHINERY MOVE" },
-  { label: "PLACEHOLDER: BRIDGE / INFRASTRUCTURE LIFT", tall: true },
-  { label: "PLACEHOLDER: NIGHT LIFT WITH SIGNAL LIGHTS" },
-  { label: "PLACEHOLDER: OFF-LOADING AT WAREHOUSE" },
+  {
+    tall: true,
+    image: "/images/project-01.jpg",
+    alt: "100-ton Bass Crane lifting a military helicopter from a lowboy trailer",
+    title: "100-Ton Helicopter Lift",
+    meta: "Rigging & Crane · Virginia",
+  },
+  {
+    image: "/images/project-02.jpg",
+    alt: "Two Bass Crane booms setting a highway sign structure at night",
+    title: "160-Ton Highway Sign Replacement",
+    meta: "VDOT · Night Lift with Riggers",
+  },
+  {
+    image: "/images/project-03.jpg",
+    alt: "Crane lifting a Sherman tank while trucks stand by",
+    title: "Museum Tank Relocation",
+    meta: "Rigging & Hauling",
+  },
+  {
+    tall: true,
+    image: "/images/project-04.jpg",
+    alt: "Crane boom extended alongside a downtown Richmond tower",
+    title: "Downtown High-Rise Lift",
+    meta: "Commercial · Richmond, VA",
+  },
+  {
+    image: "/images/project-05.jpg",
+    alt: "Bass Crane lowboy loaded with a telehandler and lift equipment",
+    title: "Equipment Transport",
+    meta: "Lowboy & Trailer Service",
+  },
+  {
+    image: "/images/project-06.jpg",
+    alt: "Bass Crane working beside concrete plant silos",
+    title: "Concrete Plant Maintenance",
+    meta: "Industrial · Richmond, VA",
+  },
+  {
+    tall: true,
+    image: "/images/project-07.jpg",
+    alt: "Bass Crane setting a highway sign under a full moon",
+    title: "Overnight Sign Set",
+    meta: "VDOT · Route 360",
+  },
+  {
+    image: "/images/project-08.jpg",
+    alt: "Bass Crane and trucks staged at a commercial building for a rooftop lift",
+    title: "Rooftop Equipment Set",
+    meta: "HVAC · Commercial",
+  },
+  {
+    image: "/images/project-09.jpg",
+    alt: "Crane and lowboy positioned to move a Sherman tank",
+    title: "Heavy Machinery Move",
+    meta: "Rigging & Hauling",
+  },
 ];
+
+export const ABOUT_IMAGES = {
+  owners: {
+    src: "/images/about-owners.jpg",
+    alt: "Bass Crane Service owners standing in front of a Link-Belt crane",
+  },
+  team: {
+    src: "/images/about-team.jpg",
+    alt: "The Bass Crane Service crew gathered on a Sherman tank after a lift",
+  },
+};

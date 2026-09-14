@@ -1,14 +1,15 @@
 import { useState } from "react";
-import axios from "axios";
 import { toast } from "sonner";
-import { Phone, Printer, Mail, MapPin, Clock, ArrowRight, Loader2 } from "lucide-react";
+import { Phone, Printer, Mail, MapPin, Clock, ArrowRight, Loader2, CheckCircle2 } from "lucide-react";
 import { COMPANY } from "@/data/site";
 import { Reveal, MaskedLines } from "@/components/Reveal";
 import { usePageMeta } from "@/components/PageHero";
 
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+// Same-origin Cloudflare Pages Function (see frontend/functions/api/contact.js).
+// Override with REACT_APP_CONTACT_ENDPOINT only if the form is ever hosted elsewhere.
+const ENDPOINT = process.env.REACT_APP_CONTACT_ENDPOINT || "/api/contact";
 
-const initial = { first_name: "", last_name: "", email: "", phone: "", comment: "" };
+const initial = { first_name: "", last_name: "", email: "", phone: "", comment: "", company: "" };
 
 const Field = ({ label, name, value, onChange, type = "text", required, testId, textarea }) => (
   <label className="block">
@@ -47,18 +48,28 @@ const Contact = () => {
 
   const [form, setForm] = useState(initial);
   const [loading, setLoading] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [error, setError] = useState("");
 
   const onChange = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
 
   const onSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setError("");
     try {
-      await axios.post(`${API}/contact`, form);
-      toast.success("Message sent! We'll be in touch shortly. For urgent jobs, call 804-233-0113.");
+      const res = await fetch(ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const body = await res.json().catch(() => ({}));
+      if (!res.ok || !body.ok) throw new Error(body.error || "Request failed");
+      setSent(true);
       setForm(initial);
+      toast.success("Message sent! We'll be in touch shortly.");
     } catch (err) {
-      toast.error("Something went wrong. Please call us at 804-233-0113.");
+      setError(`We couldn't send your message. Please call us at ${COMPANY.phone} or email ${COMPANY.email}.`);
     } finally {
       setLoading(false);
     }
@@ -122,10 +133,33 @@ const Contact = () => {
 
           {/* Right: form */}
           <Reveal delay={0.15}>
-            <div className="bg-[#F7F8FA] border border-[#E5E7EB] p-8 md:p-10">
-              {/* Wire form submissions to company email once confirmed */}
+            <div className="relative bg-[#F7F8FA] border border-[#E5E7EB] p-8 md:p-10">
               <h2 className="text-2xl md:text-3xl uppercase text-[#1A1A1A] mb-8">Send Us a Message</h2>
-              <form onSubmit={onSubmit} className="space-y-6" data-testid="contact-form">
+              {sent ? (
+                <div className="py-10 text-center" data-testid="contact-success" role="status">
+                  <CheckCircle2 className="w-12 h-12 text-[#1C3172] mx-auto" strokeWidth={1.5} />
+                  <p className="mt-6 font-display text-2xl uppercase text-[#1A1A1A]">Message received</p>
+                  <p className="mt-3 text-[#5B6270] leading-relaxed">
+                    Thanks — we'll get back to you shortly. Need a crane today?{" "}
+                    <a href={COMPANY.phoneHref} className="text-[#1C3172] underline underline-offset-4">Call {COMPANY.phone}</a>, we answer 24/7.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setSent(false)}
+                    className="mt-8 font-mono-plex text-sm uppercase tracking-widest text-[#1C3172] hover:text-[#2A4FB0]"
+                  >
+                    Send another message
+                  </button>
+                </div>
+              ) : (
+              <form onSubmit={onSubmit} className="space-y-6" data-testid="contact-form" noValidate={false}>
+                {/* Honeypot — hidden from people, filled in by bots */}
+                <div className="absolute -left-[9999px] top-auto w-px h-px overflow-hidden" aria-hidden="true">
+                  <label>
+                    Company
+                    <input type="text" name="company" value={form.company} onChange={onChange} tabIndex={-1} autoComplete="off" />
+                  </label>
+                </div>
                 <div className="grid sm:grid-cols-2 gap-6">
                   <Field label="First Name" name="first_name" value={form.first_name} onChange={onChange} required testId="contact-first-name" />
                   <Field label="Last Name" name="last_name" value={form.last_name} onChange={onChange} required testId="contact-last-name" />
@@ -133,6 +167,11 @@ const Contact = () => {
                 <Field label="Email" name="email" type="email" value={form.email} onChange={onChange} required testId="contact-email" />
                 <Field label="Phone" name="phone" type="tel" value={form.phone} onChange={onChange} testId="contact-phone" />
                 <Field label="Comment / Question" name="comment" value={form.comment} onChange={onChange} textarea testId="contact-comment" />
+                {error && (
+                  <p role="alert" data-testid="contact-error" className="text-sm text-[#B42318] bg-[#FEF3F2] border border-[#FECDCA] px-4 py-3">
+                    {error}
+                  </p>
+                )}
                 <button
                   type="submit"
                   disabled={loading}
@@ -141,7 +180,11 @@ const Contact = () => {
                 >
                   {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <>Send <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" /></>}
                 </button>
+                <p className="text-xs text-[#9AA3B8] leading-relaxed">
+                  We'll only use your details to respond to this inquiry.
+                </p>
               </form>
+              )}
             </div>
           </Reveal>
         </div>

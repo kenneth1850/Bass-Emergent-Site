@@ -5,7 +5,7 @@ Marketing website for Bass Crane Service, LLC (Richmond, VA). Six pages: Home, S
 ## Stack
 
 - **Frontend** (`frontend/`): React 19 (Create React App + craco), React Router 7, Tailwind CSS, framer-motion, Lenis smooth scroll, lucide-react icons, sonner toasts.
-- **Backend** (`backend/`): FastAPI + MongoDB — currently only stores contact-form submissions. Slated to be replaced by a hosted form service (see Roadmap).
+- **Contact form**: a Cloudflare Pages Function at `frontend/functions/api/contact.js` emails submissions via [Resend](https://resend.com). No database, no server to maintain.
 
 ## Local development
 
@@ -15,7 +15,7 @@ yarn install        # first time only
 yarn start          # http://localhost:3000
 ```
 
-Copy `frontend/.env.example` to `frontend/.env` and adjust if needed.
+The contact form posts to `/api/contact`, which only exists when running under Cloudflare (production, or locally via `npx wrangler pages dev build` after `yarn build`, with secrets in `frontend/.dev.vars` — see `.dev.vars.example`). Under plain `yarn start` the form shows its error state; everything else works.
 
 ## Production build
 
@@ -24,7 +24,23 @@ cd frontend
 yarn build          # static output in frontend/build/
 ```
 
-The site is a single-page app: the host must rewrite all paths to `/index.html` (Netlify, Vercel and Cloudflare Pages all support this with a one-line config).
+## Deploy — Cloudflare Pages
+
+1. Cloudflare dashboard → Workers & Pages → Create → Pages → Connect to Git → pick this repo.
+2. Build settings: **Root directory** `frontend` · **Build command** `yarn build` · **Build output** `build`.
+3. Settings → Variables and Secrets (Production):
+
+| Name | Value |
+|---|---|
+| `RESEND_API_KEY` | (secret) from resend.com → API Keys |
+| `CONTACT_TO` | `info@basscrane.com` |
+| `CONTACT_FROM` | `Bass Crane Website <website@basscrane.com>` once the domain is verified in Resend; `onboarding@resend.dev` before that |
+| `CONTACT_AUTOREPLY` | `true` to send customers a confirmation (optional) |
+
+4. Resend → Domains → add `basscrane.com` → add the DNS records it gives you in Cloudflare DNS.
+5. Custom domains → add `basscrane.com` and `www.basscrane.com`.
+
+Single-page-app routing is handled automatically by Pages (unknown paths serve `index.html`, and the React app renders the 404 page).
 
 ## Where things live
 
@@ -39,7 +55,6 @@ The site is a single-page app: the host must rewrite all paths to `/index.html` 
 ## Roadmap
 
 - Replace gray placeholder blocks with real photography.
-- Replace the Mongo backend with a hosted form service that emails submissions.
 - Certification / association logos in the trust band.
 - Fleet / equipment page.
 - Deploy and point basscrane.com at the new site.
